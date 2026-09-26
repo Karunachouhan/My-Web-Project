@@ -5,12 +5,17 @@
 <meta charset="UTF-8">
 <title>User Registration page</title>
 </head>
-<body style="background-color: pink">
- <%@ include file="Header.jsp" %>
+<body style="background-color: beige">
+	<%@ include file="Header.jsp"%>
+
+	<%
+	String succMsg = (String) request.getAttribute("succMsg");
+	%>
 	<div align="center">
 		<h1>User Registration</h1>
+		<h2 style="color:green"><%=succMsg!=null ? succMsg: ""%></h2>
 	</div>
-	<form>
+	<form action="UserRegistrationCtl" method="post">
 		<div align="center">
 			<table>
 
@@ -29,7 +34,7 @@
 
 				<tr>
 					<th>Email</th>
-					<td><input type="email" name="Email" value=""
+					<td><input type="email" name="loginId" value=""
 						placeholder="enter your emailId"></td>
 				</tr>
 
@@ -42,7 +47,7 @@
 
 				<tr>
 					<th>DateOfBirth</th>
-					<td><input type="date" name="dateOfBirth" value=""
+					<td><input type="date" name="dob" value=""
 						placeholder="enter your dob"></td>
 				</tr>
 
@@ -57,6 +62,6 @@
 
 	</form>
 
- <%@ include file="Footer.jsp" %>
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>
